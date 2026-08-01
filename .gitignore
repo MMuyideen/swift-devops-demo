@@ -1,0 +1,26 @@
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files (state lives in the S3 backend, never commit it)
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Exclude all .tfvars files that may contain sensitive data
+# (this repo commits terraform.tfvars intentionally; keep secrets out of it)
+*.auto.tfvars
+
+# CLI configuration / credential files
+.terraformrc
+terraform.rc
+
+# Plan output files
+*.tfplan
+tfplan
+
+# Ignore lock info
+.terraform.lock.info
