@@ -1,0 +1,21 @@
+name: Infra Destroy
+
+# Manual only — tears down all infrastructure. Requires typing "destroy" to confirm.
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  destroy:
+    uses: MMuyideen/terraform-modules-and-pipelines/.github/workflows/terraform-destroy.yml@main
+    with:
+      working_directory: .
+      cloud_provider: aws
+      environment: demo
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGION: ${{ secrets.AWS_REGION }}
